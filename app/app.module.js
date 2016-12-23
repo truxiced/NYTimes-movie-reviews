@@ -11,16 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
+var angular2_virtual_scroll_1 = require('angular2-virtual-scroll');
 var app_component_1 = require('./app.component');
 var list_component_1 = require('app/components/list/list.component');
 var reviews_component_1 = require('app/components/reviews/reviews.component');
+var listItem_component_1 = require('app/components/listItem/listItem.component');
+var virtualScroll_directive_1 = require('app/directives/virtualScroll/virtualScroll.directive');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, reviews_component_1.ReviewsComponent, list_component_1.ListComponent],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, angular2_virtual_scroll_1.VirtualScrollModule],
+            declarations: [app_component_1.AppComponent, reviews_component_1.ReviewsComponent, list_component_1.ListComponent, listItem_component_1.ListItemComponent, virtualScroll_directive_1.VirtualScrollDirective],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

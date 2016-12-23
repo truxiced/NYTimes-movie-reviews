@@ -1,7 +1,15 @@
-    <h1>Courses</h1>
+    <h1>Reviews</h1>
     {{ title }}<br />
 
 
-    <list [items] = reviews>
+    <div id="reviews-container" (updateData)="updateData()" myVirtualScroll>
+        <div>
+            <list-item *ngFor="let item of reviews" [item]="item">
+            </list-item>
+        </div>
+    </div>
 
-    </list>
+    <!--virtual-scroll [items]="reviews">
+        <list-item *ngFor="let item of reviews" [item]="item">
+        </list-item>
+    </virtual-scroll-->

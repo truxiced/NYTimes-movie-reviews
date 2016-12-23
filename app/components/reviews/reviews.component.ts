@@ -7,7 +7,8 @@ import {ReviewService} from 'app/services/reviewService/reviews.service';
 @Component({
     selector: 'reviews',
     templateUrl: 'app/components/reviews/reviews.html',
-    providers: [ReviewService]
+    providers: [ReviewService],
+    styleUrls: ['app/components/reviews/reviews.less']
 })
 export class ReviewsComponent {
 
@@ -15,9 +16,20 @@ export class ReviewsComponent {
 
     reviews;
 
-    constructor(reviewService: ReviewService){
+    constructor(private reviewService: ReviewService){
 
         //Sets value to list.
         reviewService.getMovieReviews().then(reviews => this.reviews = reviews);
+        console.log(this.reviews)
     }
+
+    onScroll() {
+    //    this.reviewService.getMovieReviewsTest().then(reviews => this.reviews.push.apply(this.reviews, reviews));
+    }
+
+    updateData() {
+        console.log("updateData");
+        this.reviewService.getMovieReviewsTest().then(reviews => this.reviews.push.apply(this.reviews, reviews));
+    }
+
 }

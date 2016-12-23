@@ -18,12 +18,36 @@ var ReviewService = (function () {
     function ReviewService(http) {
         this.http = http;
         this.baseUrl = 'http://developer.nytimes.com/proxy/https/api.nytimes.com/svc/movies/v2/';
+        this.offset = 0;
     }
     ReviewService.prototype.getMovieReviews = function () {
-        console.log("get");
-        return this.http.get(this.baseUrl + "reviews/search.json?api-key=015f41435a7d4d25af4b283647b7079d&offset=0")
+        var _this = this;
+        this.test = this.http.get(this.baseUrl + "reviews/search.json?api-key=015f41435a7d4d25af4b283647b7079d&offset=" + this.offset)
             .toPromise()
-            .then(function (response) { return response.json().results; });
+            .then(function (response) { return _this.responseData = response; })
+            .then(this.extractData);
+        //  .then(response => response.json().results);
+        //console.log(this.test)
+        //   console.log(this.responseData.has_more);
+        return this.test;
+    };
+    ReviewService.prototype.extractData = function (res) {
+        var body = res.json();
+        //  res => this.responseData = res;
+        //  console.log(this.responseData)
+        return body.results || [];
+    };
+    ReviewService.prototype.getMovieReviewsTest = function () {
+        var _this = this;
+        this.responseData = this.responseData.json();
+        console.log(this.responseData);
+        if (this.responseData.has_more) {
+            this.offset += 20;
+            return this.responseData = this.http.get(this.baseUrl + "reviews/search.json?api-key=015f41435a7d4d25af4b283647b7079d&offset=" + this.offset)
+                .toPromise()
+                .then(function (response) { return _this.responseData = response; })
+                .then(function (response) { return response.json().results; });
+        }
     };
     ReviewService = __decorate([
         core_1.Injectable(), 
