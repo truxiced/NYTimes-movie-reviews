@@ -1,0 +1,18 @@
+<div class="itemList-container">
+    <div>
+        <div class="itemList-container-img"><img class="itemList-img" src="{{getImgUrl(item)}}" height="60" width="60" /></div>
+        <div class="item-container-content">
+            <div>
+                <h4>{{item.display_title}}</h4>
+            </div>
+            <div>
+                <strong>Rating:</strong> {{item.mpaa_rating}}
+                <strong>Publication date:</strong> {{item.publication_date}}
+                <strong>Reviewer:</strong> {{item.byline}}
+            </div>
+        </div>
+    </div>
+    <div class="listItem-link-container">
+        <a target="_blank" href="{{ item.link.url }}">{{ item.link.suggested_link_text }}</a>
+    </div>
+</div>

@@ -28,21 +28,10 @@ export interface multimedia {
 }
 
 @Component({
+    moduleId: module.id,
     selector: 'list-item',
-    template: `
-        <div class="itemList-container">
-            <div><img class="itemList-img" src="{{getImgUrl(item)}}" height="60" width="60" /></div>
-            <div class="item-content">
-                <div class="name">{{item.mpaa_rating}}</div>
-                <div>
-                    <span class="badge">{{item.critics_pick}} / {{item.byline}}</span>
-                    <span>{{item.summary_short}} | {{item.publication_date}}</span>
-                </div>
-                <div>{{item.date_updated}}</div>
-            </div>
-        </div>
-    `,
-    styleUrls: ['app/components/listItem/listItem.less']
+    templateUrl: './listItem.html',
+    styleUrls: ['./listItem.less']
 })
 export class ListItemComponent {
     @Input()

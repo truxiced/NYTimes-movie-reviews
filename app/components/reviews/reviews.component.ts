@@ -5,10 +5,11 @@ import {Component} from '@angular/core';
 import {ReviewService} from 'app/services/reviewService/reviews.service';
 
 @Component({
+    moduleId: module.id,
     selector: 'reviews',
-    templateUrl: 'app/components/reviews/reviews.html',
+    templateUrl: './reviews.html',
     providers: [ReviewService],
-    styleUrls: ['app/components/reviews/reviews.less']
+    styleUrls: ['./reviews.less']
 })
 export class ReviewsComponent {
 

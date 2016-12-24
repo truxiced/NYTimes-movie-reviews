@@ -32,10 +32,11 @@ var ReviewsComponent = (function () {
     };
     ReviewsComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'reviews',
-            templateUrl: 'app/components/reviews/reviews.html',
+            templateUrl: './reviews.html',
             providers: [reviews_service_1.ReviewService],
-            styleUrls: ['app/components/reviews/reviews.less']
+            styleUrls: ['./reviews.less']
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof reviews_service_1.ReviewService !== 'undefined' && reviews_service_1.ReviewService) === 'function' && _a) || Object])
     ], ReviewsComponent);

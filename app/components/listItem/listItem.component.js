@@ -22,9 +22,10 @@ var ListItemComponent = (function () {
     ], ListItemComponent.prototype, "item", void 0);
     ListItemComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'list-item',
-            template: "\n        <div class=\"itemList-container\">\n            <div><img class=\"itemList-img\" src=\"{{getImgUrl(item)}}\" height=\"60\" width=\"60\" /></div>\n            <div class=\"item-content\">\n                <div class=\"name\">{{item.mpaa_rating}}</div>\n                <div>\n                    <span class=\"badge\">{{item.critics_pick}} / {{item.byline}}</span>\n                    <span>{{item.summary_short}} | {{item.publication_date}}</span>\n                </div>\n                <div>{{item.date_updated}}</div>\n            </div>\n        </div>\n    ",
-            styleUrls: ['app/components/listItem/listItem.less']
+            templateUrl: './listItem.html',
+            styleUrls: ['./listItem.less']
         }), 
         __metadata('design:paramtypes', [])
     ], ListItemComponent);
