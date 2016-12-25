@@ -1,12 +1,13 @@
-    <h1>Reviews</h1>
-    {{ title }}<br />
+<div id="reviews-container" class="col-md-6">
+    <h1>{{ title }}</h1>
 
+    <search-bar (criteria)="setCriteria($event)"></search-bar>
 
-    <div id="reviews-container" (updateData)="updateData()" myVirtualScroll>
+    <div id="reviews-results" (updateData)="updateData()" myVirtualScroll>
 
         <div>
             <list-item *ngFor="let item of reviews" [item]="item">
             </list-item>
         </div>
     </div>
-
+</div>

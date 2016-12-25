@@ -13,7 +13,7 @@ import {ReviewService} from 'app/services/reviewService/reviews.service';
 })
 export class ReviewsComponent {
 
-    title = "This is a title";
+    title = "Movie reviews from New York Times";
 
     reviews;
 
@@ -21,16 +21,17 @@ export class ReviewsComponent {
 
         //Sets value to list.
         reviewService.getMovieReviews().then(reviews => this.reviews = reviews);
-        console.log(this.reviews)
     }
 
-    onScroll() {
-    //    this.reviewService.getMovieReviewsTest().then(reviews => this.reviews.push.apply(this.reviews, reviews));
-    }
 
     updateData() {
         console.log("updateData");
         this.reviewService.getMovieReviewsTest().then(reviews => this.reviews.push.apply(this.reviews, reviews));
     }
 
+    setCriteria($event) {
+        this.reviewService.setSearchCriteria($event);
+        this.reviewService.getMovieReviews().then(reviews => this.reviews = reviews);
+        console.log($event.searchValue);
+    }
 }

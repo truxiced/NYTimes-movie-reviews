@@ -39,3 +39,7 @@ typings
 
 # Editor
 .idea
+
+# JavaScript
+*.js
+*.js.*

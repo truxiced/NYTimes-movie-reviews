@@ -7,6 +7,9 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
+export interface criteria {
+    searchValue: string;
+}
 @Injectable()
 export class ReviewService {
 
@@ -18,36 +21,37 @@ export class ReviewService {
 
     private test;
 
+    private searchCriteria: criteria = {
+        searchValue: ""
+    };
+
     constructor(private http : Http){
 
     }
+
+    setSearchCriteria(criteria) {
+        this.searchCriteria = criteria;
+        this.offset = 0;
+    }
+
     getMovieReviews() {
 
-        this.test = this.http.get(this.baseUrl + "reviews/search.json?api-key=015f41435a7d4d25af4b283647b7079d&offset=" + this.offset)
+        this.test = this.http.get(this.baseUrl + "reviews/search.json?api-key=015f41435a7d4d25af4b283647b7079d&offset=" + this.offset + "&query=" + this.searchCriteria.searchValue)
                 .toPromise()
             .then(response => this.responseData = response)
             .then(this.extractData);
-              //  .then(response => response.json().results);
-
-//console.log(this.test)
-
-
-     //   console.log(this.responseData.has_more);
 
         return this.test;
     }
 
     extractData(res: Response) {
         var body = res.json();
-      //  res => this.responseData = res;
-      //  console.log(this.responseData)
         return body.results || [ ];
     }
 
     getMovieReviewsTest() {
 
-        this.responseData = this.responseData.json();
-        console.log(this.responseData)
+        this.responseData = this.responseData.json()
         if(this.responseData.has_more) {
             this.offset += 20;
             return this.responseData = this.http.get(this.baseUrl + "reviews/search.json?api-key=015f41435a7d4d25af4b283647b7079d&offset=" + this.offset)

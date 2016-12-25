@@ -1,0 +1,9 @@
+<div class="searchBar-container">
+
+    <div class="col-md-4">
+        <input id="searchBar-input" class="form-control " type="text" (input)="search = $event.target.value" (keyup.enter)="onClick()" placeholder="Movie title..."/>
+
+    </div>
+
+    <button id="searchBar-button" class="btn btn-primary" type="button" (click)="onClick()">Search</button>
+</div>
