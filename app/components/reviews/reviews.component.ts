@@ -1,8 +1,6 @@
-/**
- * Created by egragus on 12/22/16.
- */
-import {Component} from '@angular/core';
-import {ReviewService} from 'app/services/reviewService/reviews.service';
+import {Component} from "@angular/core";
+import {ReviewService} from "app/services/reviewService/reviews.service";
+import {ListItem} from "app/components/listItem/listItem.component";
 
 @Component({
     moduleId: module.id,
@@ -13,25 +11,21 @@ import {ReviewService} from 'app/services/reviewService/reviews.service';
 })
 export class ReviewsComponent {
 
-    title = "Movie reviews from New York Times";
+    title = 'Movie reviews from New York Times';
 
-    reviews;
+    reviews:Array<ListItem>;
 
     constructor(private reviewService: ReviewService){
-
-        //Sets value to list.
         reviewService.getMovieReviews().then(reviews => this.reviews = reviews);
     }
 
 
     updateData() {
-        console.log("updateData");
-        this.reviewService.getMovieReviewsTest().then(reviews => this.reviews.push.apply(this.reviews, reviews));
+        this.reviewService.getNextMovieReviews().then(reviews => this.reviews.push.apply(this.reviews, reviews));
     }
 
     setCriteria($event) {
         this.reviewService.setSearchCriteria($event);
         this.reviewService.getMovieReviews().then(reviews => this.reviews = reviews);
-        console.log($event.searchValue);
     }
 }

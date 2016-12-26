@@ -1,6 +1,3 @@
-/**
- * Created by egragus on 12/25/16.
- */
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -17,6 +14,5 @@ export class SearchBarComponent {
 
     onClick() {
         this.criteria.emit({ searchValue: this.search});
-        console.log(this.search);
     }
 }

@@ -6,13 +6,15 @@ import { ReviewsComponent } from 'app/components/reviews/reviews.component';
 import { ListItemComponent } from 'app/components/listItem/listItem.component';
 import { VirtualScrollDirective } from 'app/directives/virtualScroll/virtualScroll.directive';
 import { SearchBarComponent } from 'app/components/searchBar/searchBar.component';
+import { ToggleIconDirective } from 'app/directives/toggleIcon/toggleIcon.directive';
+import { ExpandDirective } from 'app/directives/expand/expand.directive';
 
 
 
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule ],
-  declarations: [ ReviewsComponent, ListItemComponent, VirtualScrollDirective, SearchBarComponent ],
+  declarations: [ ReviewsComponent, ListItemComponent, VirtualScrollDirective, SearchBarComponent, ToggleIconDirective, ExpandDirective ],
   bootstrap:    [ ReviewsComponent ]
 })
 export class AppModule { }

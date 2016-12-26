@@ -1,6 +1,3 @@
-/**
- * Created by egragus on 12/22/16.
- */
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
@@ -49,9 +46,9 @@ export class ReviewService {
         return body.results || [ ];
     }
 
-    getMovieReviewsTest() {
+    getNextMovieReviews() {
 
-        this.responseData = this.responseData.json()
+        this.responseData = this.responseData.json();
         if(this.responseData.has_more) {
             this.offset += 20;
             return this.responseData = this.http.get(this.baseUrl + "reviews/search.json?api-key=015f41435a7d4d25af4b283647b7079d&offset=" + this.offset)

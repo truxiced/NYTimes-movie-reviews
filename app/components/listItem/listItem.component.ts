@@ -34,12 +34,9 @@ export interface multimedia {
     styleUrls: ['./listItem.less']
 })
 export class ListItemComponent {
-    @Input()
-        item;
+    @Input() item;
 
-    constructor(){
-        console.log(this.item)
-    }
+    isExpanded: boolean = false;
 
     getImgUrl(item) {
         return item.multimedia && item.multimedia.src ? item.multimedia.src : "";

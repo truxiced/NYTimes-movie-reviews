@@ -4,6 +4,7 @@
         <div class="item-container-content">
             <div>
                 <h4>{{item.display_title}}</h4>
+
             </div>
             <div>
                 <strong>Rating:</strong> {{item.mpaa_rating}}
@@ -11,8 +12,18 @@
                 <strong>Reviewer:</strong> {{item.byline}}
             </div>
         </div>
+        <div class="itemList-icon-container">
+            <img src="resources/img/icon-arrow-down-b-128.png" height="16" width="16" myToggleIcon (expanded)="isExpanded = $event.expanded">
+        </div>
+    </div>
+    <div class="itemList-description" myExpand [isExpanded]="isExpanded">
+
+        {{ item.summary_short }}
+
     </div>
     <div class="listItem-link-container">
         <a target="_blank" href="{{ item.link.url }}">{{ item.link.suggested_link_text }}</a>
     </div>
+
+
 </div>
